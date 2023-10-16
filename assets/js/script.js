@@ -7,12 +7,12 @@ var myKey = '07408fb112b44434827e8440cf06fe69';
 
 
 fetch(storeApi)
-.then(function(response){
-  return response.json();
-})
-.then(function (data){
-  console.log(data);
-});
+  .then(function(response){
+    return response.json();
+  })
+  .then(function (data){
+    console.log(data);
+  });
 console.log(storeApi);
 
 
