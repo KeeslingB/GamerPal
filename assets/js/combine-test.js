@@ -8,18 +8,18 @@ var myKey = '07408fb112b44434827e8440cf06fe69';
 // xbox x = 186
 // ps5 = 187
 
+let lastSearch = JSON.parse(localStorage.getItem("game-search")) || "";
+let lastLinks = JSON.parse(localStorage.getItem("game-links")) || [];
+// fetch(storeApi)
+// .then(function(response){
+//   return response.json();
+// })
+// .then(function (data){
+//   console.log(data);
+// });
 
 
-fetch(storeApi)
-.then(function(response){
-  return response.json();
-})
-.then(function (data){
-  console.log(data);
-});
-
-
-console.log(storeApi);
+// console.log(storeApi);
 
 
 function getApi(requestUrl) {
@@ -29,40 +29,37 @@ function getApi(requestUrl) {
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i < 10; i++);
-      
+      lastLinks = [];      
+      lastSearch = data;
+      localStorage.setItem("game-search", JSON.stringify(lastSearch));
     })
 }
 
-gameTitle = 'grand-theft-auto-iv';
+// gameTitle = 'grand-theft-auto-iv';
 
-function getApiLinks() {
-  var requestUrl = 'https://api.rawg.io/api/games/' + gameTitle + '/stores?key=' + myKey;
+function getApiLinks(gameName) {
+  var requestUrl = `https://api.rawg.io/api/games/${gameName}/stores?key=15235aadda03481b8e49cf5d10936ba7`;
   // 'https://api.rawg.io/api/games?genres=2&ordering=-rating&key=07408fb112b44434827e8440cf06fe69';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      // for (var i = 0; i < data.length; i++) {
-      //   if (data.results[i].store_id == '1') {
-      //     console.log(data);
-      //   }
-      // }
-      // console.log(data.results[2].url);
-      // for (var i = 0; i < data.length; i++) {
-      //   console.log(data);
-      // }
-
-      console.log(data.results[2]);
+      for(var i = 0; i < data.results.length; i++){
+        if (data.results[i].store_id === 1) {
+          lastLinks.push(data.results[i].url);
+          console.log(lastLinks);
+        }
+      }
+      localStorage.setItem("game-links", JSON.stringify(lastLinks));
     })
 }
 
-getApiLinks();
+// getApiLinks();
 
 function searchForm() {
-
-  let requestUrl = 'https://api.rawg.io/api/games/?key=15235aadda03481b8e49cf5d10936ba7';
+  event.preventDefault();
+  let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
   let platform = document.forms["myForm"]["platform"].value;
   let genre = document.forms["myForm"]["genre"].value;
   let meta = document.forms["myForm"]["meta"].value;
@@ -114,6 +111,10 @@ function searchForm() {
     requestUrl += `&metacritic=${meta},100`;
   }
   getApi(requestUrl);
+  for (var i = 0; i < 10; i++){
+    getApiLinks(lastSearch.results[i].slug);
+  }
+  displayResults(lastSearch, lastLinks);
 }
 
 
@@ -187,22 +188,23 @@ let resultTotal = [];
 
 function displayResults(resultFetch, resultURL){
   let resultParser = resultFetch.results
-  let gameURL = resultURL.results
+  // let gameURL = resultURL.results
+  let resultSpace = document.createElement("div");
+  resultSpace.setAttribute("id", "result-space");
+  resultSpace.setAttribute("class", "row");
+  $("body").append(resultSpace);
   for(x=0; x < 10; x++){
-    console.log(resultParser.length);
     if(x < resultParser.length){
     const resultBlock = `
-    <div class= 'row'>
-      <div class= 'col col-3'>
-        <a href= ${gameURL[2].url} target='_blank'>
-          <img src= ${resultParser[x].background_image} alt="a cover image from the game ${resultParser[x].name}" height = "200" width = "200" />
-        </a>
-        <h3 class='example-class-3 example-class-4'>${resultParser[x].name}</h3>
-      </div>
+    <div class= 'col col-3'>
+      <a href= ${resultURL[x]} target='_blank'>
+        <img src= ${resultParser[x].background_image} alt="a cover image from the game ${resultParser[x].name}" height = "200" width = "200" />
+      </a>
+      <h3 class='example-class-3 example-class-4'>${resultParser[x].name}</h3>
     </div>`
-    $('body').append(resultBlock)
+    $('#result-space').append(resultBlock)
     }
   }
 }
 
-displayResults(testGames, testURL);
+// displayResults(testGames, testURL);

@@ -83,7 +83,7 @@ function displayResults(resultFetch, resultURL){
     console.log(resultParser.length);
     if(x < resultParser.length){
     const resultBlock = `
-    <div class='col col-6'>
+    <div class='col col-3'>
       <a href= ${gameURL[0].url} target='_blank'>
         <img src= ${resultParser[x].background_image} alt="a cover image from the game ${resultParser[x].name}" height="200" width="200" />
       </a>
