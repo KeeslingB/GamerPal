@@ -1,6 +1,22 @@
-/* h1 {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding-top: 40px;
-} */
+#title {
+  font-family: 'Young Serif', serif;
+
+}
+
+#line {
+  height:7px;
+  border-radius: 30px;
+  color: #00664d;
+}
+
+#us {
+  font-family: 'Young Serif', serif;
+  font-size: 32px;
+
+}
+
+#fiveGuys {
+  background: rgb(133,141,200);
+  background: linear-gradient(180deg, rgba(133,141,200,1) 0%, rgba(59,66,140,1) 47%, rgba(10,9,52,1) 100%);
+  color: #cad593;
+}
