@@ -1,5 +1,8 @@
 var storeApi = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
-
+var button = document.getElementById('button');
+var gameTitle = '';
+var gpKey = '15235aadda03481b8e49cf5d10936ba7';
+var myKey = '07408fb112b44434827e8440cf06fe69';
 
 
 
@@ -27,7 +30,7 @@ function getApi() {
     })
 }
 
-gameTitle = 'grand-theft-auto-v';
+gameTitle = 'grand-theft-auto-iv';
 
 function getApiLinks() {
   var requestUrl = 'https://api.rawg.io/api/games/' + gameTitle + '/stores?key=' + myKey;
