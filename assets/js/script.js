@@ -26,15 +26,17 @@ function getApiLinks() {
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        if (data.results[i].store_id == '1') {
-          console.log(data.results[i].url);
-        }
-      }
-      //console.log(data.results[2].url);
+      // for (var i = 0; i < data.length; i++) {
+      //   if (data.results[i].store_id == '1') {
+      //     console.log(data);
+      //   }
+      // }
+      // console.log(data.results[2].url);
       // for (var i = 0; i < data.length; i++) {
       //   console.log(data);
       // }
+
+      console.log(data.results[2]);
     })
 }
 
