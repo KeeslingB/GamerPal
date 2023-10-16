@@ -10,6 +10,9 @@ function getApi() {
   })
 }
 
+
+
+
 function searchForm() {
       
   let platform = document.forms["myForm"]["platform"].value;
