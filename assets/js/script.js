@@ -1,3 +1,20 @@
+var storeApi = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
+
+
+
+
+fetch(storeApi)
+.then(function(response){
+  return response.json();
+})
+.then(function (data){
+  console.log(data);
+});
+
+
+console.log(storeApi);
+
+
 function getApi() {
   var requestUrl = 'https://api.rawg.io/api/games/?key=15235aadda03481b8e49cf5d10936ba7';
   fetch(requestUrl)
@@ -29,3 +46,4 @@ function searchForm() {
   alert("Here Are Your Games!");
  }
 }
+
