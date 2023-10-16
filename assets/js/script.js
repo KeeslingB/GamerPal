@@ -1,8 +1,19 @@
-console.log("Start.");
-var button = document.getElementById('button');
-var gameTitle = '';
-var gpKey = '15235aadda03481b8e49cf5d10936ba7';
-var myKey = '07408fb112b44434827e8440cf06fe69';
+var storeApi = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
+
+
+
+
+fetch(storeApi)
+.then(function(response){
+  return response.json();
+})
+.then(function (data){
+  console.log(data);
+});
+
+
+console.log(storeApi);
+
 
 function getApi() {
   var requestUrl = ' https://rawg.io/apidocs/15235aadda03481b8e49cf5d10936ba7';
