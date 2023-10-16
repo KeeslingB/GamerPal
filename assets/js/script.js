@@ -1,8 +1,5 @@
 var storeApi = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
 
-
-
-
 fetch(storeApi)
 .then(function(response){
   return response.json();
@@ -10,8 +7,6 @@ fetch(storeApi)
 .then(function (data){
   console.log(data);
 });
-
-
 console.log(storeApi);
 
 
