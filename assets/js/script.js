@@ -103,13 +103,8 @@ let genreList = {
 console.log(genreList);
 
 
-var searchBtn = localStorage.getItem('search');
-localStorage.setItem('search','submit');
 
-searchBtn.addEventListener(
-  'click',
-  'option',
-);
+
 
 function getApi() {
   var requestUrl = 'https://api.rawg.io/api/games/?key=15235aadda03481b8e49cf5d10936ba7';
@@ -168,7 +163,3 @@ function searchForm() {
     alert("Here Are Your Games!");
   }
 }
-
-
-
-
