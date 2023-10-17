@@ -75,17 +75,21 @@ let resultTotal = [];
 function displayResults(resultFetch, resultURL){
   let resultParser = resultFetch.results
   let gameURL = resultURL.results
+  let resultSpace = document.createElement("div");
+  resultSpace.setAttribute("id", "result-space");
+  resultSpace.setAttribute("class", "row");
+  $("body").append(resultSpace);
   for(x=0; x < 10; x++){
     console.log(resultParser.length);
     if(x < resultParser.length){
     const resultBlock = `
-    <div class='example-class-1 example-class-2'>
+    <div class='col col-3'>
       <a href= ${gameURL[0].url} target='_blank'>
-        <img src= ${resultParser[x].background_image} alt="a cover image from the game ${resultParser[x].name}" />
+        <img src= ${resultParser[x].background_image} alt="a cover image from the game ${resultParser[x].name}" height="200" width="200" />
       </a>
       <h3 class='example-class-3 example-class-4'>${resultParser[x].name}</h3>
     </div>`
-    $('#result-area').append(resultBlock)
+    $('#result-space').append(resultBlock)
     }
   }
 }
