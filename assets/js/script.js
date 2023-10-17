@@ -4,18 +4,106 @@ var gameTitle = '';
 var gpKey = '15235aadda03481b8e49cf5d10936ba7';
 var myKey = '07408fb112b44434827e8440cf06fe69';
 
+var platforms = 'https://api.rawg.io/api/platforms?key=15235aadda03481b8e49cf5d10936ba7';
+
+var gameGenres = 'https://api.rawg.io/api/genres?key=15235aadda03481b8e49cf5d10936ba7';
 
 
-fetch(storeApi)
+fetch(gameGenres)
 .then(function(response){
   return response.json();
+}).then(function(data){
 })
-.then(function (data){
-  console.log(data);
-});
+
+fetch(platforms)
+.then(function(response){
+  return response.json();
+}).then(function(data){
+})
 
 
-console.log(storeApi);
+let platformsList = {
+  count: 3,
+  results: [
+    {
+      id: 4,
+      name: 'PC',
+      slug: 'pc',
+    },
+    {
+      id: 186,
+      name: 'Xbox Series S/X',
+      slug: 'xbox-series-x',
+    },
+    {
+      id: 187,
+      name: 'PlayStation 5',
+      slug: 'playstation5',
+    },
+  ]
+}
+console.log(platformsList);
+
+
+let genreList = {
+  count: 11,
+  results: [
+    {
+      id: 4,
+      name: 'Action',
+      slug: 'action',
+    },
+    {
+      id: 3,
+      name: 'Adventure',
+      slug: 'adventure',
+    },
+    {
+      id: 2,
+      name: 'Shooter',
+      slug: 'shooter',
+    },
+    {
+      id: 5,
+      name: 'RPG',
+      slug: 'role-playing-games-rpg',
+    },
+    {
+      id: 7,
+      name: 'Puzzle',
+      slug: 'puzzle',
+    },
+    {
+      id: 10,
+      name: 'Strategy',
+      slug: 'strategy',
+    },
+    {
+      id: 14,
+      name: 'Simulation',
+      slug: 'simulation',
+    },
+    {
+      id: 11,
+      name: 'Arcade',
+      slug: 'arcade',
+    },
+    {
+      id: 1,
+      name: 'Racing',
+      slug: 'racing',
+    },
+    {
+      id: 15,
+      name: 'Sports',
+      slug: 'sports',
+    }
+  ]
+}
+console.log(genreList);
+
+
+
 
 
 function getApi() {
@@ -50,7 +138,7 @@ function getApiLinks() {
       //   console.log(data);
       // }
 
-      console.log(data.results[2]);
+      console.log(data.results);
     })
 }
 

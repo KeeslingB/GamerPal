@@ -1,5 +1,3 @@
-
-
 // the link grabbed from resultURL is going to need some logic help from the form, just passing the first link available at the moment until we figure more of that out
 
 // using example-class-1 and the like until we figure out how we want to style it with bootstrap configurations
