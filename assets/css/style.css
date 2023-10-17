@@ -1,22 +1,36 @@
+/* game finder now has its own google font */
 #title {
   font-family: 'Young Serif', serif;
 
 }
-
+/* creates a horizontal line to separate the top from the center of the screen, with some characteristics of its own */
 #line {
   height:7px;
   border-radius: 30px;
   color: #00664d;
 }
-
+/* gaming recommendations now has its own google font */
 #us {
   font-family: 'Young Serif', serif;
   font-size: 32px;
 
 }
-
-#fiveGuys {
+/* gives our names and descriptions that pleasant Katygreen color in addition to a gradient background flowing from dark blue to light blue */
+.fiveGuys {
   background: rgb(133,141,200);
   background: linear-gradient(180deg, rgba(133,141,200,1) 0%, rgba(59,66,140,1) 47%, rgba(10,9,52,1) 100%);
   color: #cad593;
+}
+/* aligns footer to bottom center */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+/* footer words now have their own google font */
+.low {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
 }
