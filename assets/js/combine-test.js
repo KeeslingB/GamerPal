@@ -16,8 +16,6 @@ let lastLinks = JSON.parse(localStorage.getItem("game-links")) || [];
 // .then(function (data){
 //   console.log(data);
 // });
-
-
 // console.log(storeApi);
 
 
@@ -77,8 +75,8 @@ function getApiLinks(games) {
 }
 // getApiLinks();
 
-function searchForm(event) {
-  event.preventDefault();
+function searchForm() {
+  preventDefault();
   let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
   let platform = document.forms["myForm"]["platform"].value;
   let genre = document.forms["myForm"]["genre"].value;
@@ -126,6 +124,7 @@ function searchForm(event) {
     }
     if (genre === "Sports") {
       requestUrl += `&genres=sports`
+      console.log('working');
     }
   }
   if (meta > 100 || meta < 0) {
