@@ -4,11 +4,13 @@ var gameTitle = '';
 var gpKey = '15235aadda03481b8e49cf5d10936ba7';
 var myKey = '07408fb112b44434827e8440cf06fe69';
 
+let spotSelector = $('#result-space');
+
 // pc = 4
 // xbox x = 186
 // ps5 = 187
 
-let lastSearch = JSON.parse(localStorage.getItem("game-search")) || "";
+let lastSearch = JSON.parse(localStorage.getItem("game-search")) || {};
 let lastLinks = JSON.parse(localStorage.getItem("game-links")) || [];
 // fetch(storeApi)
 // .then(function(response){
@@ -29,32 +31,53 @@ function getApi(requestUrl) {
       return response.json();
     })
     .then(function (data) {
-      lastLinks = [];      
+      lastLinks = [];
       lastSearch = data;
       localStorage.setItem("game-search", JSON.stringify(lastSearch));
+
+      //for (var i = 0; i < lastSearch.results.length; i++){
+      getApiLinks(lastSearch.results);
+      //}
+      //let endGames = JSON.parse(localStorage.getItem("game-search"))
+      //let endURL = JSON.parse(localStorage.getItem("game-links"))
+      // displayResults(endGames, endURL);
     })
 }
 
 // gameTitle = 'grand-theft-auto-iv';
 
-function getApiLinks(gameName) {
-  var requestUrl = `https://api.rawg.io/api/games/${gameName}/stores?key=15235aadda03481b8e49cf5d10936ba7`;
-  // 'https://api.rawg.io/api/games?genres=2&ordering=-rating&key=07408fb112b44434827e8440cf06fe69';
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      for(var i = 0; i < data.results.length; i++){
-        if (data.results[i].store_id === 1) {
-          lastLinks.push(data.results[i].url);
-          console.log(lastLinks);
+function getApiLinks(games) {
+  let counterVar = 0;
+  let resultsArr = [];
+  for (var i = 0; i < games.length; i++) {
+    let game = games[i];
+    console.log(game.slug);
+    var requestUrl = `https://api.rawg.io/api/games/${game.slug}/stores?key=15235aadda03481b8e49cf5d10936ba7`;
+    // 'https://api.rawg.io/api/games?genres=2&ordering=-rating&key=07408fb112b44434827e8440cf06fe69';
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (info) {
+        //for (var i = 0; i < data.results.length; i++) {
+          // if (data.results[i].store_id === 1) {
+          //   lastLinks.push(data.results[i].url);
+          //   console.log(lastLinks);
+          // }
+          console.log(counterVar, info.results[0].url);
+          lastLinks.push(info.results[0].url);
+          game.url=info.results[0].url;
+          resultsArr.push(game);
+          counterVar++;
+        //}
+        localStorage.setItem("game-links", JSON.stringify(lastLinks));
+        if(counterVar === games.length){
+          // displayResults(lastSearch, lastLinks);
+          displayResults(resultsArr);
         }
-      }
-      localStorage.setItem("game-links", JSON.stringify(lastLinks));
-    })
+      })
+  }
 }
-
 // getApiLinks();
 
 function searchForm() {
@@ -65,56 +88,58 @@ function searchForm() {
   let meta = document.forms["myForm"]["meta"].value;
 
   if (platform !== "") {
-    if(platform === "Xbox"){
+    if (platform === "Xbox") {
       requestUrl += `&platforms=186`;
-    }else if(platform === "PS5"){
+    } else if (platform === "PS5") {
       requestUrl += `&platforms=186`;
-    }else{
+    } else {
       requestUrl += `&platforms=4`;
     }
   }
-  if (genre !== ""){
-    if(genre === "Action"){
+  if (genre !== "") {
+    if (genre === "Action") {
       requestUrl += `&genres=action`
     }
-    if(genre === "Adventure"){
+    if (genre === "Adventure") {
       requestUrl += `&genres=adventure`
     }
-    if(genre === "Shooter"){
+    if (genre === "Shooter") {
       requestUrl += `&genres=shooter`
     }
-    if(genre === "RPG"){
+    if (genre === "RPG") {
       requestUrl += `&genres=role-playing-games-rpg`
     }
-    if(genre === "Puzzle"){
+    if (genre === "Puzzle") {
       requestUrl += `&genres=puzzle`
     }
-    if(genre === "Strategy"){
+    if (genre === "Strategy") {
       requestUrl += `&genres=strategy`
     }
-    if(genre === "Simulation"){
+    if (genre === "Simulation") {
       requestUrl += `&genres=simulation`
     }
-    if(genre === "Arcade"){
+    if (genre === "Arcade") {
       requestUrl += `&genres=arcade`
     }
-    if(genre === "Racing"){
+    if (genre === "Racing") {
       requestUrl += `&genres=racing`
     }
-    if(genre === "Sports"){
+    if (genre === "Sports") {
       requestUrl += `&genres=sports`
     }
   }
   if (meta > 100 || meta < 0) {
     alert("Unable to include metacritic score due to invalid input");
-  }else {
+  } else {
     requestUrl += `&metacritic=${meta},100`;
   }
   getApi(requestUrl);
-  for (var i = 0; i < 10; i++){
-    getApiLinks(lastSearch.results[i].slug);
-  }
-  displayResults(lastSearch, lastLinks);
+  // for (var i = 0; i < lastSearch.results.length; i++){
+  //   getApiLinks(lastSearch.results[i].slug);
+  // }
+  // let endGames = JSON.parse(localStorage.getItem("game-search"))
+  // let endURL = JSON.parse(localStorage.getItem("game-links"))
+  // displayResults(endGames, endURL);
 }
 
 
@@ -145,7 +170,7 @@ let testGames = {
 }
 
 
-let testURL ={
+let testURL = {
   count: 5,
   next: null,
   previous: null,
@@ -186,23 +211,26 @@ let testURL ={
 
 let resultTotal = [];
 
-function displayResults(resultFetch, resultURL){
-  let resultParser = resultFetch.results
+function displayResults(resultsArr) {
+  spotSelector.html("");
+  // let resultParser = resultFetch.results;
   // let gameURL = resultURL.results
-  let resultSpace = document.createElement("div");
-  resultSpace.setAttribute("id", "result-space");
-  resultSpace.setAttribute("class", "row");
-  $("body").append(resultSpace);
-  for(x=0; x < 10; x++){
-    if(x < resultParser.length){
-    const resultBlock = `
+  // let resultSpace = document.createElement("div");
+  // resultSpace.setAttribute("id", "result-space");
+  // resultSpace.setAttribute("class", "row");
+  // $("body").append(resultSpace);
+
+  for (x = 0; x < 10; x++) {
+    let thisGame = resultsArr[x]
+    if (x < resultsArr.length) {
+      const resultBlock = `
     <div class= 'col col-3'>
-      <a href= ${resultURL[x]} target='_blank'>
-        <img src= ${resultParser[x].background_image} alt="a cover image from the game ${resultParser[x].name}" height = "200" width = "200" />
+      <a href= ${thisGame.url} target='_blank'>
+        <img src= ${thisGame.background_image} alt="a cover image from the game ${thisGame.name}" height = "200" width = "200" />
       </a>
-      <h3 class='example-class-3 example-class-4'>${resultParser[x].name}</h3>
+      <h3 class='example-class-3 example-class-4'>${thisGame.name}</h3>
     </div>`
-    $('#result-space').append(resultBlock)
+      $('#result-space').append(resultBlock)
     }
   }
 }
