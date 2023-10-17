@@ -3,7 +3,17 @@ var storeUrl = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936
 
 var genreList = 'https://api.rawg.io/api/genres?key=15235aadda03481b8e49cf5d10936ba7';
 
+var platformList = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
 
+
+
+fetch(platformList)
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+})
 
 
 fetch(storeUrl)
@@ -11,8 +21,9 @@ fetch(storeUrl)
     return response.json();
   })
   .then(function (data) {
-    console.log(data.results);
+    console.log(data);
   })
+
 
 fetch(genreList)
 .then(function (response){
@@ -20,6 +31,18 @@ fetch(genreList)
 })
 .then(function (){
 })
+
+genreOptionsForm.getElementById('genre')
+
+
+
+
+
+
+
+
+
+
 
 let gamesGenreList = {
   count: 11,
@@ -78,12 +101,11 @@ let gamesGenreList = {
     },
   ]
 }
+
 console.log(gamesGenreList.results);
 
 
-// pc = 4
-//xbox x = 186
-//ps5   = 187
+
 
 
 
@@ -108,3 +130,7 @@ function searchForm() {
 }
 
 
+
+// pc = 4
+//xbox x = 186
+//ps5   = 187
