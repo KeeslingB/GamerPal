@@ -9,7 +9,6 @@ var platforms = 'https://api.rawg.io/api/platforms?key=15235aadda03481b8e49cf5d1
 var gameGenres = 'https://api.rawg.io/api/genres?key=15235aadda03481b8e49cf5d10936ba7';
 
 
-<<<<<<< HEAD
 fetch(storeApi)
   .then(function(response){
     return response.json();
@@ -17,8 +16,8 @@ fetch(storeApi)
   .then(function (data){
     console.log(data);
   });
-console.log(storeApi);
-=======
+
+  
 fetch(gameGenres)
 .then(function(response){
   return response.json();
@@ -114,7 +113,6 @@ console.log(genreList);
 
 
 
->>>>>>> c312d67510e4b9d9da77097f101ce5224b862a0d
 
 
 function getApi() {
