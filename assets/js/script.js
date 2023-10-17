@@ -1,113 +1,60 @@
-
-var storeUrl = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
-
-var genreList = 'https://api.rawg.io/api/genres?key=15235aadda03481b8e49cf5d10936ba7';
-
-var platformList = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
-
+var storeApi = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
+var button = document.getElementById('button');
+var gameTitle = '';
+var gpKey = '15235aadda03481b8e49cf5d10936ba7';
+var myKey = '07408fb112b44434827e8440cf06fe69';
 
 
-fetch(platformList)
-.then(function (response) {
+
+fetch(storeApi)
+.then(function(response){
   return response.json();
 })
-.then(function (data) {
+.then(function (data){
   console.log(data);
-})
+});
 
 
-fetch(storeUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  })
+console.log(storeApi);
 
 
-fetch(genreList)
-.then(function (response){
-  return response.json(gamesGenreList);
-})
-.then(function (){
-})
-
-genreOptionsForm.getElementById('genre')
-
-
-
-
-
-
-
-
-
-
-
-let gamesGenreList = {
-  count: 11,
-  next: null,
-  previous: null,
-  results: [
-    {
-      id: 4,
-      slug: 'action',
-      name: 'Action',
-    },
-    {
-      id: 3,
-      slug: 'adventure',
-      name: 'Adventure',
-    },
-    {
-      id: 2,
-      slug: 'shooter',
-      name: 'Shooter',
-    },
-    {
-      id: 5,
-      slug: 'role-playing-games-rpg',
-      name: 'RPG',
-    },
-    {
-      id: 7,
-      slug: 'puzzle',
-      name: 'Puzzle',
-    },
-    {
-      id: 10,
-      slug: 'strategy',
-      name: 'Strategy',
-    },
-    {
-      id: 14,
-      slug: 'simulation',
-      name: 'Simulation',
-    },
-    {
-      id: 11,
-      slug: 'arcade',
-      name: 'Arcade',
-    },
-    {
-      id: 1,
-      slug: 'racing',
-      name: 'Racing',
-    },
-    {
-      id: 15,
-      slug: 'sports',
-      name: 'Sports',
-    },
-  ]
+function getApi() {
+  var requestUrl = 'https://api.rawg.io/api/games/?key=15235aadda03481b8e49cf5d10936ba7';
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++);
+      console.log(data);
+    })
 }
 
-console.log(gamesGenreList.results);
+gameTitle = 'grand-theft-auto-iv';
 
+function getApiLinks() {
+  var requestUrl = 'https://api.rawg.io/api/games/' + gameTitle + '/stores?key=' + myKey;
+  // 'https://api.rawg.io/api/games?genres=2&ordering=-rating&key=07408fb112b44434827e8440cf06fe69';
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // for (var i = 0; i < data.length; i++) {
+      //   if (data.results[i].store_id == '1') {
+      //     console.log(data);
+      //   }
+      // }
+      // console.log(data.results[2].url);
+      // for (var i = 0; i < data.length; i++) {
+      //   console.log(data);
+      // }
 
+      console.log(data.results[2]);
+    })
+}
 
-
-
+getApiLinks();
 
 function searchForm() {
 
