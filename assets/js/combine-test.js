@@ -5,6 +5,7 @@ var gpKey = '15235aadda03481b8e49cf5d10936ba7';
 var myKey = '07408fb112b44434827e8440cf06fe69';
 
 let spotSelector = $('#result-space');
+let eventSelect = $()
 
 // pc = 4
 // xbox x = 186
