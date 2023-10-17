@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a75170a24fd68489596a771d0036e03bd066b862
 // the link grabbed from resultURL is going to need some logic help from the form, just passing the first link available at the moment until we figure more of that out
 
 // using example-class-1 and the like until we figure out how we want to style it with bootstrap configurations
