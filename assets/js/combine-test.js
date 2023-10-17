@@ -77,8 +77,8 @@ function getApiLinks(games) {
 }
 // getApiLinks();
 
-function searchForm() {
-  preventDefault();
+function searchForm(event) {
+  event.preventDefault();
   let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
   let platform = document.forms["myForm"]["platform"].value;
   let genre = document.forms["myForm"]["genre"].value;
