@@ -1,3 +1,4 @@
+// global variables
 var storeApi = 'https://api.rawg.io/api/stores?key=15235aadda03481b8e49cf5d10936ba7';
 var button = document.getElementById('button');
 var gameTitle = '';
@@ -5,12 +6,11 @@ var gpKey = '15235aadda03481b8e49cf5d10936ba7';
 var myKey = '07408fb112b44434827e8440cf06fe69';
 
 let spotSelector = $('#result-space');
-let eventSelect = $()
 
 let lastSearch = JSON.parse(localStorage.getItem("game-search")) || {};
 let lastLinks = JSON.parse(localStorage.getItem("game-links")) || [];
 
-
+// setting the form values via localStorage (if present)
 document.forms["myForm"]["platform"].value = JSON.parse(localStorage.getItem("platform"));
 document.forms["myForm"]["genre"].value = JSON.parse(localStorage.getItem("genre"));
 document.forms["myForm"]["meta"].value = JSON.parse(localStorage.getItem("meta"));
