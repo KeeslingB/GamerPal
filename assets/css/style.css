@@ -21,12 +21,34 @@
   background: linear-gradient(180deg, rgba(133,141,200,1) 0%, rgba(59,66,140,1) 47%, rgba(10,9,52,1) 100%);
   color: #cad593;
 }
+/* any game names have their own font pool/size */
+.gamename {
+  text-align: center;
+  width: 100%;
+  color: #cad593;
+  font-weight: bold;
+  padding-left: 0;
+}
+/* aligns images with the text within the 5 columns so that the images do not make the text display out of order */
+.img-with-text {
+  text-align: center;
+  width: [width of img];
+}
+/* secondary confirmation to make sure text aligns with image, making sure nothing flies all over the screen */
+.img-with-text img {
+  display: block;
+  margin: 0 auto;
+}
+img {
+  display: flex;
+  width: 100%;
+}
 /* aligns footer to bottom center */
 footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 /* footer words now have their own google font */
 .low {
