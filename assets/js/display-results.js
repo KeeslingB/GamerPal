@@ -87,7 +87,7 @@ function displayResults(resultFetch, resultURL){
       </a>
       <h3 class='example-class-3 example-class-4'>${resultParser[x].name}</h3>
     </div>`
-    $('#result-space').append(resultBlock)
+    $('#result-space').append(resultBlock);
     }
   }
 }

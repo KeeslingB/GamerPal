@@ -7,9 +7,6 @@ var myKey = '07408fb112b44434827e8440cf06fe69';
 let spotSelector = $('#result-space');
 let eventSelect = $()
 
-// pc = 4
-// xbox x = 186
-// ps5 = 187
 
 let lastSearch = JSON.parse(localStorage.getItem("game-search")) || {};
 let lastLinks = JSON.parse(localStorage.getItem("game-links")) || [];
@@ -26,8 +23,6 @@ document.forms["myForm"]["meta"].value = JSON.parse(localStorage.getItem("meta")
 // .then(function (data){
 //   console.log(data);
 // });
-
-
 // console.log(storeApi);
 
 
@@ -88,11 +83,14 @@ function getApiLinks(games) {
 // getApiLinks();
 
 function searchForm() {
-  event.preventDefault();
+  preventDefault();
   let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
   let platform = document.forms["myForm"]["platform"].value;
   let genre = document.forms["myForm"]["genre"].value;
   let meta = document.forms["myForm"]["meta"].value;
+  localStorage.setItem('platform',JSON.stringify(platform));
+  localStorage.setItem('genre',JSON.stringify(genre));
+  localStorage.setItem('meta',JSON.stringify(meta));
 
   localStorage.setItem("platform", JSON.stringify(platform));
   localStorage.setItem("genre", JSON.stringify(genre));
@@ -137,18 +135,19 @@ function searchForm() {
     }
     if (genre === "Sports") {
       requestUrl += `&genres=sports`
+      console.log('working');
     }
   }
   if (meta > 100 || meta < 0) {
     alert("Unable to include metacritic score due to invalid input");
   } else {
     requestUrl += `&metacritic=${meta},100`;
-  }
+  } 
   getApi(requestUrl);
   // for (var i = 0; i < lastSearch.results.length; i++){
   //   getApiLinks(lastSearch.results[i].slug);
   // }
-  // let endGames = JSON.parse(localStorage.getItem("game-search"))
+  // let endGames = JSON.parse(localStorage.setItem("game-search"))
   // let endURL = JSON.parse(localStorage.getItem("game-links"))
   // displayResults(endGames, endURL);
 }
@@ -245,5 +244,3 @@ function displayResults(resultsArr) {
     }
   }
 }
-
-// displayResults(testGames, testURL);
