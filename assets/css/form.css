@@ -59,15 +59,3 @@ h1 {
   color: #f1f1f1;
   font-size: 24px;
 }
-
-@media (max-width: 1200px) {
-  #myVideo{
-    display: none;
-  } 
-  body {
-    background-color: black;
-  }
-  
-}
-  
-  
