@@ -60,11 +60,14 @@ function getApiLinks(games) {
 
 // this function activates after the form is submitted, checking the parameters before passing the request url to the initial fetch request
 function searchForm() {
-  event.preventDefault();
+  preventDefault();
   let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
   let platform = document.forms["myForm"]["platform"].value;
   let genre = document.forms["myForm"]["genre"].value;
   let meta = document.forms["myForm"]["meta"].value;
+  localStorage.setItem('platform',JSON.stringify(platform));
+  localStorage.setItem('genre',JSON.stringify(genre));
+  localStorage.setItem('meta',JSON.stringify(meta));
 
   localStorage.setItem("platform", JSON.stringify(platform));
   localStorage.setItem("genre", JSON.stringify(genre));
@@ -109,13 +112,14 @@ function searchForm() {
     }
     if (genre === "Sports") {
       requestUrl += `&genres=sports`
+      console.log('working');
     }
   }
   if (meta > 100 || meta < 0) {
     alert("Unable to include metacritic score due to invalid input");
   } else {
     requestUrl += `&metacritic=${meta},100`;
-  }
+  } 
   getApi(requestUrl);
 }
 
