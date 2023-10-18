@@ -5,6 +5,7 @@ var gpKey = '15235aadda03481b8e49cf5d10936ba7';
 var myKey = '07408fb112b44434827e8440cf06fe69';
 
 let spotSelector = $('#result-space');
+let eventSelect = $()
 
 // pc = 4
 // xbox x = 186
@@ -12,6 +13,12 @@ let spotSelector = $('#result-space');
 
 let lastSearch = JSON.parse(localStorage.getItem("game-search")) || {};
 let lastLinks = JSON.parse(localStorage.getItem("game-links")) || [];
+
+
+document.forms["myForm"]["platform"].value = JSON.parse(localStorage.getItem("platform"));
+document.forms["myForm"]["genre"].value = JSON.parse(localStorage.getItem("genre"));
+document.forms["myForm"]["meta"].value = JSON.parse(localStorage.getItem("meta"));
+
 // fetch(storeApi)
 // .then(function(response){
 //   return response.json();
@@ -87,11 +94,15 @@ function searchForm() {
   let genre = document.forms["myForm"]["genre"].value;
   let meta = document.forms["myForm"]["meta"].value;
 
+  localStorage.setItem("platform", JSON.stringify(platform));
+  localStorage.setItem("genre", JSON.stringify(genre));
+  localStorage.setItem("meta", JSON.stringify(meta));
+
   if (platform !== "") {
     if (platform === "Xbox") {
       requestUrl += `&platforms=186`;
     } else if (platform === "PS5") {
-      requestUrl += `&platforms=186`;
+      requestUrl += `&platforms=187`;
     } else {
       requestUrl += `&platforms=4`;
     }
