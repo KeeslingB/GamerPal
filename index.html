@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="reset" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/form.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +21,9 @@
 </head>
 <!-- <script src='./assets/js/script.js'></script> -->
 <body class="container-fluid">
+  <video autoplay muted loop id="myVideo">
+    <source src="./assets/mp4/bokeh_blink_blink_2.mov" type="video/mp4">
+  </video>
   
   <header class="row justify-content-end">
     <!-- look into bootstrap elements so that Game Finder can stay in the center and navbar can be uploaded --DONE -->
@@ -30,7 +34,7 @@
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <h2 class="navbar-brand">Filter Games</h2>
-            <a href= "./fake-index.html"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <a href= "./fake-index.html" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg></a>
         </div>
@@ -41,6 +45,7 @@
   <hr id="line">
   
   <div class="col text-center pt-4" id="us">The Makers' Gaming Recommendations</div>
+
 <!-- 5 separate columns , with each person's name(picture too maybe?) and their recommended games -->
 <!-- list games with links -->
 <!-- give fiveguys class so all text is adjusted to katygreen -->
@@ -58,39 +63,40 @@
         </ul>
         
       </div> 
-      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Brendan</h3>
-        <ul class= "gamename text-center">Oldschool Runescape</ul>
-            <a href="https://oldschool.runescape.com/" target="_blank"><img src="./assets/images/osrs.png" alt="Oldschool Runescape" style="object-fit:cover;"></a>RuneScape is a high fantasy open world MMORPG. Explore an ever changing and evolving living world where new challenges, skills, and quests await. Featuring unprecedented player freedom, you choose how to play, adventure, and grow.
+      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Casey</h3>
+        <ul class= "gamename text-center">Rimworld</ul>
+            <a href="https://store.steampowered.com/app/294100/RimWorld/" target="_blank"><img src="./assets/images/rimworld.png" alt="Rimworld" style="object-fit:cover;"></a>A sci-fi colony sim driven by an intelligent AI storyteller. Generates stories by simulating psychology, ecology, gunplay, melee combat, climate, biomes, diplomacy, interpersonal relationships, art, medicine, trade, and more.
+
         </ul>
-        <ul class= "gamename text-center">Skate 3</ul>
-            <a href="https://www.ea.com/games/skate/skate-3" target="_blank"><img src="./assets/images/skate3.png" alt="Skate 3" style="object-fit:cover;"></a>Team Up. Thrown Down. The award-winning SKATE franchise returns to break new ground with SKATE 3. Delivering the definitive co-op skateboarding experience, it's up to players to build the ultimate team and change the face of the city. Get ready to take on unique team challenges, compete against rival crews online and shred the streets of the all new skaters' paradise, Port Carverton.
-        </ul>
-        
-      </div>  
-      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Brendan</h3>
-        <ul class= "gamename text-center">Oldschool Runescape</ul>
-            <a href="https://oldschool.runescape.com/" target="_blank"><img src="./assets/images/osrs.png" alt="Oldschool Runescape" style="object-fit:cover;"></a>RuneScape is a high fantasy open world MMORPG. Explore an ever changing and evolving living world where new challenges, skills, and quests await. Featuring unprecedented player freedom, you choose how to play, adventure, and grow.
-        </ul>
-        <ul class= "gamename text-center">Skate 3</ul>
-            <a href="https://www.ea.com/games/skate/skate-3" target="_blank"><img src="./assets/images/skate3.png" alt="Skate 3" style="object-fit:cover;"></a>Team Up. Thrown Down. The award-winning SKATE franchise returns to break new ground with SKATE 3. Delivering the definitive co-op skateboarding experience, it's up to players to build the ultimate team and change the face of the city. Get ready to take on unique team challenges, compete against rival crews online and shred the streets of the all new skaters' paradise, Port Carverton.
+        <ul class= "gamename text-center">Binding of Isaac</ul>
+            <a href="https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/" target="_blank"><img src="./assets/images/bindingofisaac.png" alt="Binding of Isaac" style="object-fit:cover;"></a>The Binding of Isaac is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac's form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.
         </ul>
         
       </div>  
-      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Brendan</h3>
-        <ul class= "gamename text-center">Oldschool Runescape</ul>
-            <a href="https://oldschool.runescape.com/" target="_blank"><img src="./assets/images/osrs.png" alt="Oldschool Runescape" style="object-fit:cover;"></a>RuneScape is a high fantasy open world MMORPG. Explore an ever changing and evolving living world where new challenges, skills, and quests await. Featuring unprecedented player freedom, you choose how to play, adventure, and grow.
+      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Jason</h3>
+        <ul class= "gamename text-center">The Guild 2 Renaissance</ul>
+            <a href="https://store.steampowered.com/app/39680/The_Guild_II_Renaissance/" target="_blank"><img src="./assets/images/guild2renaissance.png" alt="The Guild 2 Renaissance" style="object-fit:cover;"></a>In the 14th Century the world order is beginning to transform itself. Due to trade and commerce an increasing middle class obtains more and more power and wealth. Entire towns purchase their freedom and more privileges from the nobility. Reading and writing is no longer the domain of the nobility and the clergy and the invention of printing information may eventually be spread everywhere. This is the beginning of the renaissance...
         </ul>
-        <ul class= "gamename text-center">Skate 3</ul>
-            <a href="https://www.ea.com/games/skate/skate-3" target="_blank"><img src="./assets/images/skate3.png" alt="Skate 3" style="object-fit:cover;"></a>Team Up. Thrown Down. The award-winning SKATE franchise returns to break new ground with SKATE 3. Delivering the definitive co-op skateboarding experience, it's up to players to build the ultimate team and change the face of the city. Get ready to take on unique team challenges, compete against rival crews online and shred the streets of the all new skaters' paradise, Port Carverton.
+        <ul class= "gamename text-center">Battlefield Bad Company 2</ul>
+            <a href="https://www.ea.com/games/battlefield-bad-company-2" target="_blank"><img src="./assets/images/bfbc2.png" alt="Battlefield Bad Company 2" style="object-fit:cover;"></a>In Battlefield: Bad Company 2, the 'B' Company fight their way through snowy mountaintops, dense jungles, and dusty villages with a heavy arsenal of deadly weapons and a slew of vehicles.
         </ul>
         
       </div>  
-      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Brendan</h3>
-        <ul class= "gamename text-center">Oldschool Runescape</ul>
-            <a href="https://oldschool.runescape.com/" target="_blank"><img src="./assets/images/osrs.png" alt="Oldschool Runescape" style="object-fit:cover;"></a>RuneScape is a high fantasy open world MMORPG. Explore an ever changing and evolving living world where new challenges, skills, and quests await. Featuring unprecedented player freedom, you choose how to play, adventure, and grow.
+      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Joe</h3>
+        <ul class= "gamename text-center">EA Sports FC 24</ul>
+            <a href="https://store.steampowered.com/app/2195250/EA_SPORTS_FC_24/" target="_blank"><img src="./assets/images/eafc24.png" alt="EA Sports FC 24" style="object-fit:cover;"></a>EA SPORTS FC™ 24 welcomes you to The World's Game: the most true-to-football experience ever with HyperMotionV, PlayStyles optimised by Opta, and an enhanced Frostbite™ Engine.
         </ul>
-        <ul class= "gamename text-center">Skate 3</ul>
-            <a href="https://www.ea.com/games/skate/skate-3" target="_blank"><img src="./assets/images/skate3.png" alt="Skate 3" style="object-fit:cover;"></a>Team Up. Thrown Down. The award-winning SKATE franchise returns to break new ground with SKATE 3. Delivering the definitive co-op skateboarding experience, it's up to players to build the ultimate team and change the face of the city. Get ready to take on unique team challenges, compete against rival crews online and shred the streets of the all new skaters' paradise, Port Carverton.
+        <ul class= "gamename text-center">God Of War</ul>
+            <a href="https://store.steampowered.com/app/1593500/God_of_War/" target="_blank"><img src="./assets/images/godofwar.png" alt="God of War" style="object-fit:cover;"></a>His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.
+        </ul>
+        
+      </div>  
+      <div class="fiveGuys col-2 mx-3 bg-info img-with-text"><h3 class= "text-center">Zachary</h3>
+        <ul class= "gamename text-center">Monster Hunter: World</ul>
+            <a href="https://store.steampowered.com/app/582010/Monster_Hunter_World/" target="_blank"><img src="./assets/images/mhw.png" alt="Monster Hunter World" style="object-fit:cover;"></a>Welcome to a new world! In Monster Hunter: World, the latest installment in the series, you can enjoy the ultimate hunting experience, using everything at your disposal to hunt monsters in a new world teeming with surprises and excitement.
+        </ul>
+        <ul class= "gamename text-center">Persona 5 Royal</ul>
+            <a href="https://store.steampowered.com/app/1687950/Persona_5_Royal/" target="_blank"><img src="./assets/images/persona5royal.png" alt="persona 5 royal" style="object-fit:cover;"></a>Don the mask and join the Phantom Thieves of Hearts as they stage grand heists, infiltrate the minds of the corrupt, and make them change their ways!
         </ul>
         
       </div>  
