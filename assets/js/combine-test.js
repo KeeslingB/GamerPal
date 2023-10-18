@@ -15,6 +15,7 @@ document.forms["myForm"]["platform"].value = JSON.parse(localStorage.getItem("pl
 document.forms["myForm"]["genre"].value = JSON.parse(localStorage.getItem("genre"));
 document.forms["myForm"]["meta"].value = JSON.parse(localStorage.getItem("meta"));
 
+// this function is called when the form is submitted and sets off a chain reaction after making an initial fetch request to grab the specified games
 function getApi(requestUrl) {
   fetch(requestUrl)
     .then(function (response) {
@@ -29,6 +30,7 @@ function getApi(requestUrl) {
     })
 }
 
+// this function takes in the results of the initial fetch request and adds the url to the data
 function getApiLinks(games) {
   let counterVar = 0;
   let resultsArr = [];
@@ -56,6 +58,7 @@ function getApiLinks(games) {
   }
 }
 
+// this function activates after the form is submitted, checking the parameters before passing the request url to the initial fetch request
 function searchForm() {
   event.preventDefault();
   let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
@@ -116,6 +119,7 @@ function searchForm() {
   getApi(requestUrl);
 }
 
+// this function takes the results of the fetches and displays the images of the games with links to a store page
 function displayResults(resultsArr) {
   spotSelector.html("");
 
