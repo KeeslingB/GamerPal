@@ -60,7 +60,7 @@ function getApiLinks(games) {
 
 // this function activates after the form is submitted, checking the parameters before passing the request url to the initial fetch request
 function searchForm() {
-  preventDefault();
+  event.preventDefault();
   let requestUrl = 'https://api.rawg.io/api/games?key=15235aadda03481b8e49cf5d10936ba7';
   let platform = document.forms["myForm"]["platform"].value;
   let genre = document.forms["myForm"]["genre"].value;
