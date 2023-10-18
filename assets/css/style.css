@@ -1,7 +1,11 @@
 /* game finder now has its own google font */
 #title {
   font-family: 'Young Serif', serif;
+  color: #cad593;
 
+}
+.navbar-brand {
+  color: #cad593;
 }
 /* creates a horizontal line to separate the top from the center of the screen, with some characteristics of its own */
 #line {
@@ -13,6 +17,7 @@
 #us {
   font-family: 'Young Serif', serif;
   font-size: 32px;
+  color: #cad593;
 
 }
 /* gives our names and descriptions that pleasant Katygreen color in addition to a gradient background flowing from dark blue to light blue */
@@ -55,4 +60,5 @@ footer {
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   font-size: 18px;
+  color: #cad593;
 }
