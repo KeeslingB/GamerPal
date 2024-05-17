@@ -1,8 +1,8 @@
-# GameFinder
+# GamerPal
 
 ## Description.
  
-For our Group project we decided to make a easy to use gamefinder project that allows you to search for games within the same criteria of your choice. We also implemented LocalStorage to save users input for the next time they visit our site.
+For our Group project we decided to make a easy to use game finder project that allows you to search for games within the same criteria of your choice. We also implemented LocalStorage to save users input for the next time they visit our site.
 
 
 ## How to Use.
